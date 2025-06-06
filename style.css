@@ -16,14 +16,14 @@
     --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    
+
     /* Responsive spacing */
     --section-padding: clamp(3rem, 8vw, 6rem) 0;
     --container-padding: clamp(1rem, 4vw, 2rem);
     --gap-sm: clamp(0.5rem, 2vw, 1rem);
     --gap-md: clamp(1rem, 3vw, 2rem);
     --gap-lg: clamp(2rem, 5vw, 4rem);
-    
+
     /* Responsive typography */
     --fs-xs: clamp(0.75rem, 2vw, 0.875rem);
     --fs-sm: clamp(0.875rem, 2.5vw, 1rem);
@@ -96,9 +96,12 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px) rotate(0deg);
     }
+
     50% {
         transform: translateY(-20px) rotate(180deg);
     }
@@ -313,7 +316,8 @@ section:nth-child(even) {
     display: inline-block;
     position: relative;
     overflow: hidden;
-    min-height: 44px; /* Better touch target */
+    min-height: 44px;
+    /* Better touch target */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -330,7 +334,8 @@ section:nth-child(even) {
     border: 2px solid var(--primary-color);
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
     outline: none;
@@ -785,10 +790,12 @@ section:nth-child(even) {
     color: var(--text-secondary);
     text-decoration: none;
     transition: all 0.3s ease;
-    min-height: 44px; /* Better touch target */
+    min-height: 44px;
+    /* Better touch target */
 }
 
-.social-link:hover, .social-link:focus {
+.social-link:hover,
+.social-link:focus {
     background: var(--gradient-1);
     color: white;
     transform: translateY(-3px);
@@ -893,6 +900,7 @@ footer {
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -914,7 +922,8 @@ footer {
 /* Improve text readability */
 @media (max-width: 768px) {
     body {
-        font-size: 16px; /* Prevent zoom on iOS */
+        font-size: 16px;
+        /* Prevent zoom on iOS */
     }
 }
 

@@ -1,16 +1,16 @@
 // Enhanced responsive navigation and interactions
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Remove loading class
     document.body.classList.remove('loading');
-    
+
     // Mobile navigation toggle
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
-    
+
     if (mobileMenuToggle && mobileNav) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function () {
             mobileNav.classList.toggle('active');
-            this.setAttribute('aria-expanded', 
+            this.setAttribute('aria-expanded',
                 mobileNav.classList.contains('active') ? 'true' : 'false'
             );
         });
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!mobileNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
                 mobileNav.classList.remove('active');
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const text = title.textContent;
         title.textContent = '';
         let i = 0;
-        
+
         function typeWriter() {
             if (i < text.length) {
                 title.textContent += text.charAt(i);
@@ -81,23 +81,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(typeWriter, 80);
             }
         }
-        
+
         // Start typing animation after page load
         setTimeout(typeWriter, 1000);
     }
 
     // Optimized parallax effect for floating shapes
     let ticking = false;
-    
+
     function updateParallax() {
         const scrolled = window.pageYOffset;
         const shapes = document.querySelectorAll('.floating-shapes');
-        
+
         shapes.forEach((shape, index) => {
             const rate = scrolled * -0.3 * (index + 1);
             shape.style.transform = `translateY(${rate}px)`;
         });
-        
+
         ticking = false;
     }
 
@@ -110,19 +110,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Enhanced interactive hover effects with better performance
     const interactiveCards = document.querySelectorAll('.metric-card, .project-card, .experience-card, .skill-category');
-    
+
     interactiveCards.forEach(card => {
         card.addEventListener('mouseenter', function () {
             this.style.background = 'rgba(255, 255, 255, 0.08)';
         });
-        
+
         card.addEventListener('mouseleave', function () {
             this.style.background = 'rgba(255, 255, 255, 0.05)';
         });
     });
 
     // Keyboard navigation support
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('active')) {
             mobileNav.classList.remove('active');
             if (mobileMenuToggle) {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const criticalImages = [
         // Add any critical image URLs here
     ];
-    
+
     criticalImages.forEach(src => {
         const img = new Image();
         img.src = src;
@@ -144,14 +144,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add loading states for better UX
     const lazyLoadElements = document.querySelectorAll('.metric-card, .project-card, .experience-card');
-    
+
     lazyLoadElements.forEach((element, index) => {
         element.style.animationDelay = `${index * 0.1}s`;
     });
 
     // Handle reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
+
     if (prefersReducedMotion.matches) {
         document.querySelectorAll('.floating-shapes').forEach(shape => {
             shape.style.animation = 'none';
@@ -166,11 +166,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Touch device optimizations
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
+
     if (isTouchDevice) {
         // Add touch-specific styles
         document.body.classList.add('touch-device');
-        
+
         // Improve touch targets
         const touchTargets = document.querySelectorAll('.btn, .nav-links a, .social-link');
         touchTargets.forEach(target => {
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Enhanced error handling
-    window.addEventListener('error', function(e) {
+    window.addEventListener('error', function (e) {
         console.warn('Non-critical error:', e.error);
     });
 
@@ -232,8 +232,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact form tracking
     document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], a[href^="https://wa.me"]').forEach(link => {
         link.addEventListener('click', () => {
-            const type = link.href.startsWith('mailto:') ? 'email' : 
-                        link.href.startsWith('tel:') ? 'phone' : 'whatsapp';
+            const type = link.href.startsWith('mailto:') ? 'email' :
+                link.href.startsWith('tel:') ? 'phone' : 'whatsapp';
             trackEvent('contact', 'contact_click', type);
         });
     });
