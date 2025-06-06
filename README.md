@@ -87,7 +87,7 @@ Fares Elmenshawi is a Machine Learning Engineer and AI Consultant with proven ex
 1. **Create repository** named `fareselmenshawi.github.io`
 2. **Upload files**:
    - `index.html`
-   - `styles.css`
+   - `style.css`
    - `script.js`
    - `README.md`
 3. **Enable Pages** in repository settings
